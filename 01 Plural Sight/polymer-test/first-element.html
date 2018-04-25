@@ -1,0 +1,39 @@
+<!doctype html>
+<head>
+  
+  <meta charset="utf-8">
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/webcomponentsjs/1.2.0/webcomponents-lite.js"></script>
+  
+  <link href="http://polygit.org/components/polymer/polymer.html" rel="import">
+  
+  <style>
+    body {
+      font-family: sans-serif;
+    }
+  </style>
+
+</head>
+<body>
+  
+  <x-example></x-example>
+    
+  <dom-module id="x-example">
+    <template>
+      <h2>I Live</h2>
+    </template>
+  </dom-module>
+
+  <script>
+  
+    // only need this when both (1) in the main document and (2) on non-Chrome browsers
+    HTMLImports.whenReady(function() {
+      Polymer({
+        is: "x-example"
+      });
+    });
+    
+  </script>
+
+
+</body>

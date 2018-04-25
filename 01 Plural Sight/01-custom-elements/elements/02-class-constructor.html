@@ -1,0 +1,19 @@
+<link rel="import" href="../bower_components/polymer/polymer.html">
+
+<script>
+  // Define the element's API using an ES2015 class
+  class XCustom extends Polymer.Element {
+
+    static get is() { return 'x-custom'; }
+
+    ready() {
+      super.ready();
+      this.textContent = 'I\'m a custom element!';
+    }
+
+
+  }
+  
+  // Register the x-custom element with the browser
+  customElements.define(XCustom.is, XCustom);
+</script>

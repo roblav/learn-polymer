@@ -1,0 +1,25 @@
+<dom-module id="hello-custom">
+  <template>
+    <p>Hello World from <span id="name"></span>!</p>
+  </template>
+  <script>
+    // Define the element's API using an ES2015 class
+    class XCustom extends Polymer.Element {
+
+      static get is() {
+        return 'hello-custom';
+      }
+
+      ready() {
+        super.ready();
+        this.$.name.textContent = this.tagName;
+      }
+
+
+    }
+
+    // Register the x-custom element with the browser
+    customElements.define(XCustom.is, XCustom);
+  </script>
+
+</dom-module>

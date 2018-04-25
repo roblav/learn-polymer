@@ -1,0 +1,22 @@
+{
+  "name": "02-routing",
+  "authors": [
+    "robert.lavender <robert.lavender@digital.hmrc.gov.uk>"
+  ],
+  "description": "",
+  "main": "",
+  "license": "MIT",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "app-route": "PolymerElements/app-route#^2.1.0",
+    "paper-tabs": "PolymerElements/paper-tabs#^2.1.1",
+    "neon-animation": "PolymerElements/neon-animated-pages#^2.2.1"
+  }
+}

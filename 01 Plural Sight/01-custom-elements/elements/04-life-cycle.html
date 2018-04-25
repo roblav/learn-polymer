@@ -1,0 +1,45 @@
+<dom-module id="life-cycle">
+  <template>
+    <p>Hello World from <span id="name"></span>!</p>
+  </template>
+  <script>
+    // Define the element's API using an ES2015 class
+    class LifeCycle extends Polymer.Element {
+
+      static get is() {
+        return 'life-cycle';
+      }
+      
+      constructor() {
+        super()
+        console.log('Constructor called')
+      }
+
+      ready() {
+        super.ready();
+        this.$.name.textContent = this.tagName;
+        console.log('Ready called')
+      }
+
+      connectedCallback() {
+        super.connectedCallback();
+        console.log('connectedCallback called')
+      }
+
+      disconnectedCallback() {
+        super.disconnectedCallback();
+        console.log('disconnectedCallback called')
+      }
+
+      attributeChangedCallback() {
+        super.attributeChangedCallback();
+        console.log('attributeChangedCallback called')
+      }
+
+    }
+
+    // Register the x-custom element with the browser
+    customElements.define(LifeCycle.is, LifeCycle);
+  </script>
+
+</dom-module>

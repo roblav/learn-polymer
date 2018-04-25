@@ -1,0 +1,58 @@
+<dom-module id="data-test">
+  <template>
+    <p>Hello World from <span id="name"></span>!</p>
+    [[message]]
+    [[alertUpdateTime]]
+  </template>
+  <script>
+    // Define the element's API using an ES2015 class
+    class DataTest extends Polymer.Element {
+
+      static get is() {
+        return 'data-test';
+      }
+
+      static get properties() {
+        return {
+          user: String,
+          manager: {
+            type: Boolean,
+            notify: true
+          },
+          message: {
+            type: String,
+            value: "Hello message"
+          },
+          alertUpdateTime: {
+            type: Date,
+            value: function(){
+              return new Date()
+            }
+          }
+        }
+      }
+      
+      constructor() {
+        super()
+      }
+
+      ready() {
+        super.ready();
+        this.$.name.textContent = this.tagName;
+      }
+
+      connectedCallback() {
+        super.connectedCallback();
+        // render
+        this.$.name.textContent = 'Hello World, my user is ' + (this.user || 'nobody') + '.\n' +
+          'This user is ' + (this.manager ? '' : 'not') + ' a manager.';
+      }
+
+
+    }
+
+    // Register the x-custom element with the browser
+    customElements.define(DataTest.is, DataTest);
+  </script>
+
+</dom-module>

@@ -1,0 +1,43 @@
+<link rel="import" href="http://polygit.org/components/polymer/polymer.html">
+  
+<script src="../node_modules/accessible-autocomplete/dist/accessible-autocomplete.min.js"></script>
+
+<dom-module id="accessible-autocomplete">
+
+  <link rel="import" type="css" href="../node_modules/accessible-autocomplete/dist/accessible-autocomplete.min.css" />
+
+  <template>
+    <select id="location-picker">
+      <option value="fr">France</option>
+      <option value="de">Germany</option>
+      <option value="gb">United Kingdom</option>
+      <option value="gb">Bob</option>
+    </select>
+  </template>
+
+  <script>
+
+    class AccessibleAutocomplete extends Polymer.Element {
+      static get is() {
+        return "accessible-autocomplete";
+      }
+      constructor() {
+        super();
+        
+      }
+      ready() {
+        super.ready();
+        // retrieve the nested template
+        // console.log(this.shadowRoot.querySelector('#location-picker'))
+        let template = this.shadowRoot.querySelector('#location-picker');
+        accessibleAutocomplete.enhanceSelectElement({
+          selectElement: template
+        })
+      }
+    }
+    customElements.define(AccessibleAutocomplete.is, AccessibleAutocomplete)
+
+  </script>
+
+</dom-module>
+

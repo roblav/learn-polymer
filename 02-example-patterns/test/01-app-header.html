@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script src="bower_components/webcomponentsjs/webcomponents-lite.js"></script>
+  <link rel="import" href="bower_components/app-layout/app-layout.html">
+
+  <!-- sample-content included for demo purposes only -->
+  <link rel="import" href="bower_components/app-layout/demo/sample-content.html">
+
+  <title>Document</title>
+
+  <custom-style>
+    <style>
+      body {
+        /* No margin on body so toolbar can span the screen */
+        margin: 0;
+      }
+      app-toolbar {
+        /* Toolbar is the main header, so give it some color */
+        background-color: #1E88E5;
+        font-family: 'Roboto', Helvetica, sans-serif;
+        color: white;
+        --app-toolbar-font-size: 24px;
+      }
+    </style>
+  </custom-style>
+
+</head>
+<body>
+  <app-header fixed>
+    <app-toolbar style="height: 64px;">
+      <div main-title>App name</div>
+    </app-toolbar>
+  </app-header>
+  
+  <sample-content size="10"></sample-content>
+</body>
+</html>

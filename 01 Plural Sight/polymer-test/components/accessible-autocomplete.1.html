@@ -1,0 +1,32 @@
+<link rel="import" href="http://polygit.org/components/polymer/polymer.html">
+  
+<script src="../node_modules/accessible-autocomplete/dist/accessible-autocomplete.min.js"></script>
+<link rel="stylesheet" href="../node_modules/accessible-autocomplete/dist/accessible-autocomplete.min.css" />
+
+<dom-module id="accessible-autocomplete">
+  <template>
+    <select id="location-picker">
+      <option value="fr">France</option>
+      <option value="de">Germany</option>
+      <option value="gb">United Kingdom</option>
+      <option value="gb">Bob</option>
+    </select>
+  </template>
+
+  <script>
+
+    Polymer({
+      is: "accessible-autocomplete"
+    });
+
+  </script>
+
+</dom-module>
+
+ <script>
+    var autocomplete = document.querySelector('#location-picker')
+    console.log(autocomplete)
+    // accessibleAutocomplete.enhanceSelectElement({
+    //  selectElement: document.querySelector('#location-picker')
+    // })
+  </script>

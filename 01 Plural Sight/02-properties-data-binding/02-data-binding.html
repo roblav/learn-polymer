@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html class="no-js">
+  <head>
+    <title></title>
+    <script src="bower_components/webcomponentsjs/webcomponents-loader.js"></script>
+    <link rel="import" href="bower_components/polymer/polymer.html">
+    <link rel="import" href="elements/02-data-binding.html">
+    <link rel="import" href="bower_components/paper-button/paper-button.html">
+    <link rel="import" href="bower_components/paper-input/paper-input.html">
+    <style>
+      body {
+        font-family: sans-serif;
+      }
+    </style>
+  </head>
+  <body>
+
+    <paper-input label="Your name here"></paper-input>
+    <paper-button>Say Hello</paper-button>
+
+    <button onclick="document.querySelector('life-cycle').remove()">Remove Life Cycle element</button>
+    
+    <data-test user="Scott" manager></data-test>
+    <script>
+      // To ensure that elements are ready on polyfilled browsers, 
+      // wait for WebComponentsReady. 
+      document.addEventListener('WebComponentsReady', function() {
+        var input = document.querySelector('paper-input');
+        var button = document.querySelector('paper-button');
+        var greeting = document.getElementById("greeting");
+        button.addEventListener('click', function() {
+          greeting.textContent = 'Hello, ' + input.value;
+        });
+      });
+    </script>
+  </body>
+</html>

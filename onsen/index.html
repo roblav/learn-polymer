@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" href="https://unpkg.com/onsenui/css/onsenui.css">
+  <link rel="stylesheet" href="https://unpkg.com/onsenui/css/onsen-css-components.min.css">
+  <script src="https://unpkg.com/onsenui/js/onsenui.min.js"></script>
+
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css">
+  <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+
+  <script>
+    window.fn = {};
+    window.fn.load = function(page) {
+      var navi = document.getElementById('myNavigator');
+      navi.pushPage(page, { animation: 'slide' });
+    };
+    window.fn.addToCart = function() {
+      var navi = document.getElementById('myNavigator');
+      navi.bringPageTop(0, { animation: 'none' })
+      ons.notification.toast('You have added a product', { timeout: 1000, animation: 'fall' })
+    };
+  </script>
+  
+</head>
+<body>
+
+  <ons-navigator id="myNavigator">
+    <ons-page>
+
+      <ons-splitter id="appSplitter">
+        <ons-splitter-content page="tabbar.html"></ons-splitter-content>
+      </ons-splitter>
+
+    </ons-page>
+  </ons-navigator>
+
+  <template id="tabbar.html">
+    <ons-tabbar position="auto">
+      <ons-tab page="goods.html" label="Home" icon="ion-home" active></ons-tab>
+      <ons-tab page="cart.html" badge="1" label="Cart" icon="ion-ios-cart"></ons-tab>
+    </ons-tabbar>
+  </template>
+
+  <template id="goods.html">
+    <ons-page>
+      <ons-toolbar>
+        <div class="center">Choose your goods</div>
+      </ons-toolbar>
+      <ons-list>
+        <ons-list-item modifier="chevron" tappable id="Alcohol" onclick="fn.load('alcohol.html')">Alcohol</ons-list-item>
+        <ons-list-item modifier="chevron" tappable id="Tobacco">Tobacco</ons-list-item>
+        <ons-list-item modifier="chevron" tappable id="Other goods">Other goods</ons-list-item>
+      </ons-list>
+    </ons-page>
+  </template>
+
+  <template id="alcohol.html">
+    <ons-page>
+      <ons-toolbar>
+        <div class="left">
+          <ons-back-button>Home</ons-back-button>
+        </div>
+        <div class="center">Choose your goods</div>
+      </ons-toolbar>
+
+      <ons-list>
+        <ons-list-item modifier="chevron" tappable id="Spirits" onclick="fn.load('details.html')">Spirits</ons-list-item>
+        <ons-list-item modifier="chevron" tappable id="Beer">Beer</ons-list-item>
+        <ons-list-item modifier="chevron" tappable id="Cider">Cider</ons-list-item>
+        <ons-list-item modifier="chevron" tappable id="Wine">Wine</ons-list-item>
+        <ons-list-item modifier="chevron" tappable id="Sparking or Fortified Wine">Sparking or Fortified Wine</ons-list-item>
+      </ons-list>
+    </ons-page>
+  </template>
+
+  <template id="details.html">
+    <ons-page>
+      <ons-toolbar>
+        <div class="left">
+          <ons-back-button>Goods</ons-back-button>
+        </div>
+        <div class="center">Enter details</div>
+      </ons-toolbar>
+
+      <div style="text-align: center; margin-top: 30px;">
+        <p>
+          <ons-input id="username" modifier="material" placeholder="Volume in litres" float></ons-input>
+        </p>
+        <p>
+          <ons-input id="password" modifier="material" placeholder="Cost" float></ons-input>
+        </p>
+        <p style="margin-top: 30px;">
+          <ons-button onclick="fn.addToCart()">Add to cart</ons-button>
+        </p>
+      </div>
+    </ons-page>
+  </template>
+
+  <template id="cart.html">
+    <ons-page>
+
+      <ons-toolbar>
+        <div class="center">Cart</div>
+      </ons-toolbar>
+
+      <table width="100%" class="mdl-data-table mdl-js-data-table mdl-data-table--selectable">
+        <thead>
+          <tr>
+            <th class="mdl-data-table__cell--non-numeric">Product</th>
+            <th class="mdl-data-table__cell--non-numeric">Volume (litres)</th>
+            <th class="mdl-data-table__cell--non-numeric">Cost ($)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="mdl-data-table__cell--non-numeric">Spirits</td>
+            <td class="mdl-data-table__cell--non-numeric"><ons-input modifier="underbar" value="100"></ons-input></td>
+            <td class="mdl-data-table__cell--non-numeric"><ons-input modifier="underbar" value="80"></ons-input></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <p style="margin-top: 30px; text-align: center;">
+        <ons-button onclick="fn.addToCart()">Calculate</ons-button>
+      </p>
+
+    </ons-page>
+  </template>
+
+</body>
+
+</html>
+
